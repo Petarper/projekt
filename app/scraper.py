@@ -2,7 +2,9 @@ from bs4 import BeautifulSoup
 import requests
 import re
 import sqlite3
+import os 
 
+DB_PATH = os.path.join("data", "weather.db")
 
 URL = ("https://www.timeanddate.com/weather/@3187232")
 page = requests.get(URL)
@@ -28,7 +30,7 @@ if temperature:
     temp = re.findall(r'\d+', temperature)
     temp = int(temp[0]) if temp else None
 
-conn = sqlite3.connect("../data/weather.db")
+conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
 
 

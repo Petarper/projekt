@@ -4,5 +4,5 @@ import subprocess
 interval = 45
 
 while True:
-    subprocess.run(["python3", "scraper.py"])
+    subprocess.run(["python3", "app/scraper.py"])
     time.sleep(interval * 60)
