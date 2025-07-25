@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from datetime import datetime
 
-con = sqlite3.connect("weather.db")
+con = sqlite3.connect("../data/weather.db")
 df = pd.read_sql_query("SELECT timestamp, temperature, feels_like FROM weather_data", con)
 con.close()
 

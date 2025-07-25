@@ -28,7 +28,7 @@ if temperature:
     temp = re.findall(r'\d+', temperature)
     temp = int(temp[0]) if temp else None
 
-conn = sqlite3.connect("weather.db")
+conn = sqlite3.connect("../data/weather.db")
 cursor = conn.cursor()
 
 
