@@ -1,6 +1,6 @@
 import sqlite3
 from flask import Flask
-from app.prediction import prediction
+from app.prediction import prediiction_in_hr
 import os
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ DB_PATH = os.path.join("data", "weather.db")
 
 @app.route("/")
 def home():
-    predict, in_one_hour_dt = prediction()
+    predict, in_one_hour_dt = prediiction_in_hr()
     
 
     con = sqlite3.connect(DB_PATH)
