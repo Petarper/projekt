@@ -1,15 +1,18 @@
 import sqlite3
 from flask import Flask
-from app.prediction import prediiction_in_hr
-import os
 
+import os, sys
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
+sys.path.insert(0, ROOT_DIR)
+from app.prediction import prediction_in_hr, connect
 app = Flask(__name__)
 
 DB_PATH = os.path.join("data", "weather.db")
 
 @app.route("/")
 def home():
-    predict, in_one_hour_dt = prediiction_in_hr()
+    df = connect(DB_PATH)
+    predict, in_one_hour_dt = prediction_in_hr(df)
     
 
     con = sqlite3.connect(DB_PATH)
