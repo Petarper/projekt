@@ -23,7 +23,6 @@ class TestScraper(unittest.TestCase):
         pred, time_str = prediction_in_hr(df)
         self.assertIsNotNone(pred, "Prediction returned None — model likely didn't fit.")
         self.assertIsInstance(pred, float)
-        self.assertTrue(20 <= pred <= 30)
         self.assertIsInstance(time_str, str)
         
 

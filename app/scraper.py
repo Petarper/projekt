@@ -3,8 +3,8 @@ import requests
 import re
 import sqlite3
 import os 
+DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "weather.db"))
 
-DB_PATH = os.path.join("data", "weather.db")
 
 def fetch_html(URL):
     page = requests.get(URL)
